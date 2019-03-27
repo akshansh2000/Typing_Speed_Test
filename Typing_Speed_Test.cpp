@@ -49,6 +49,7 @@ char temp;
 
 int main() {
 start:
+    srand(time(NULL));
     print = test[rand() % 20];
     fflush(stdout);
     system("clear");
