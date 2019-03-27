@@ -50,7 +50,7 @@ char temp;
 int main() {
 start:
     srand(time(NULL));
-    print = test[rand() % 20];
+    print = test[rand() % test->size()];
     fflush(stdout);
     system("clear");
     cout << '\r' << print << endl;
@@ -59,12 +59,13 @@ start:
 
     while (ans != print && chrono::steady_clock::now() < end) {
         temp = getch();
-        if (temp == '\b')
+        if ((int)temp == 127)
             ans.erase(ans.end() - 1);
         else
             ans += temp;
+        system("clear");
         fflush(stdout);
-        cout << '\r' << ans;
+        cout << print << "\n\r" << ans;
     }
 
     if (ans == print)
