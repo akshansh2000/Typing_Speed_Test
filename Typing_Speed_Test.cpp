@@ -48,20 +48,20 @@ string ans, print;
 char temp;
 
 int main() {
-start:
     srand(time(NULL));
-    print = test[rand() % test->size()];
+start:
+    print = test[(rand() * rand() * rand()) % test->size()];
     fflush(stdout);
     system("clear");
     cout << '\r' << print << endl;
     ans.clear();
-    chrono::steady_clock::time_point end = chrono::steady_clock::now() + chrono::seconds(3);
+    chrono::steady_clock::time_point end = chrono::steady_clock::now() + chrono::seconds(4);
 
     while (ans != print && chrono::steady_clock::now() < end) {
         temp = getch();
-        if ((int)temp == 127)
+        if ((int)temp == 127 && ans.length())
             ans.erase(ans.end() - 1);
-        else
+        else if ((int)temp != 127)
             ans += temp;
         system("clear");
         fflush(stdout);
