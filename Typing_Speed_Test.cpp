@@ -50,12 +50,12 @@ char temp;
 int main() {
     srand(time(NULL));
 start:
-    print = test[(rand() * rand() * rand()) % test->size()];
+    print = test[(rand()) % test->size()];
     fflush(stdout);
     system("clear");
     cout << '\r' << print << endl;
     ans.clear();
-    chrono::steady_clock::time_point end = chrono::steady_clock::now() + chrono::seconds(4);
+    chrono::steady_clock::time_point end = chrono::steady_clock::now() + chrono::seconds(3);
 
     while (ans != print && chrono::steady_clock::now() < end) {
         temp = getch();
